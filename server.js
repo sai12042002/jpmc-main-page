@@ -3,7 +3,12 @@ const userApp=require('./APIS/userAPI')
 const productApp=require('./APIS/productAPI')
 //creating the server...
 const app=exp()
+//import path for connecting..
+const path=require('path')
 
+//connecting back-end
+
+app.use(exp.static(path.join(__dirname,'./build')))
 
 //creating a mongoclient..
 const mdbClient=require('mongodb').MongoClient
