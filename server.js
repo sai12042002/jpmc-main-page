@@ -1,6 +1,8 @@
 const exp=require('express') //express module returns a function.
 const userApp=require('./APIS/userAPI')
 const productApp=require('./APIS/productAPI')
+// import dotenv
+require('dotenv').config()
 //creating the server...
 const app=exp()
 //import path for connecting..
@@ -13,7 +15,7 @@ app.use(exp.static(path.join(__dirname,'./build')))
 //creating a mongoclient..
 const mdbClient=require('mongodb').MongoClient
 //Database connection...
-const Database="mongodb+srv://poorna_1307:chandu13@poorna.zv57ipv.mongodb.net/?retryWrites=true&w=majority"
+const Database=process.env.DATA_BASE_URl;
 //calling connect method on mongoclient with database url
 mdbClient.connect(Database)
     .then((client)=>{
@@ -33,7 +35,8 @@ mdbClient.connect(Database)
 
 app.use('/user-api',userApp)
 app.use('/product-api',productApp)
-app.listen(4000,()=>console.log("Server listening on port 4000..."))
+const port=process.env.PORT
+app.listen(port,()=>console.log(`Server listening on port ${port}...`))
 
 app.use((request,response,next)=>{
     response.send({message:`The path ${request.url} is invalid..`})
