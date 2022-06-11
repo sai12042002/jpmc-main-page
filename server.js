@@ -7,6 +7,8 @@ require('dotenv').config()
 const app=exp()
 //import path for connecting..
 const path=require('path')
+const { request } = require('http')
+const { response } = require('express')
 
 //connecting back-end
 
@@ -35,6 +37,9 @@ mdbClient.connect(Database)
 
 app.use('/user-api',userApp)
 app.use('/product-api',productApp)
+app.use('*',(request,response)=>{
+    response.sendFile(path.join(__dirname,'./build/index.html'))
+})
 const port=process.env.PORT
 app.listen(port,()=>console.log(`Server listening on port ${port}...`))
 
