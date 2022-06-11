@@ -4,6 +4,7 @@ import HOME from './components/Home'
 import SIGNUP from './components/SignUp'
 import LOGIN from './components/login'
 import CONTACTUS from './components/ContactUs'
+import './App.css';
 function App() {
   return (
     <div>
