@@ -1,8 +1,8 @@
+require('dotenv').config()
 const asyncHandler=require('express-async-handler')
 const bcrypt=require('bcryptjs')
 const exp=require('express')
 const jwt=require('jsonwebtoken')
-require('dotenv').config()
 const userApp=exp.Router()
 //To extract body of request object.
 userApp.use(exp.json())
@@ -23,16 +23,16 @@ userApp.post('/login',asyncHandler(async(request,response)=>{
     console.log(usersData)
     let tempUser=usersData.filter(obj=>obj.newUser.username===userObj.username)
     if(tempUser.length===0){
-        response.send("Invalid users...")
+        response.send({message:"Invalid users"})
     }
     else{
         const status=await bcrypt.compare(userObj.password,tempUser[0].newUser.password)
         if(status==false){
-            response.send({message:"Invalid password..."})
+            response.send({message:"Invalid password"})
         }
         else{
-            let token=jwt.sign({username:userObj.username},process.env.SECURITY_KEY,{expiresIn:"1h"})
-            response.send({message:"Login success",payload:token,userdata:tempUser[0].newUser.password})
+            let token=jwt.sign({username:userObj.username},''+process.env.SECURITY,{expiresIn:"1h"})
+            response.send({message:"Login success",payload:token,userdata:tempUser[0].newUser})
         }
     }
 }))

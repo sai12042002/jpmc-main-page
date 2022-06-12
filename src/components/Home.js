@@ -1,7 +1,7 @@
 function Home(){
     return(
         <div>
-            Hello, You are in home...!
+            <h1 className="heading">MyShop</h1>
         </div>
     )
 }

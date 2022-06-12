@@ -1,6 +1,6 @@
 import {useForm} from 'react-hook-form';
 import { BiLogInCircle } from "react-icons/bi";
-import {useNavigate} from "react-router"
+import {useNavigate} from "react-router";
 import axios from 'axios'
 function SignUp(){
     const {register,handleSubmit,formState:{errors}}=useForm()
@@ -20,9 +20,10 @@ function SignUp(){
         })
     }
  return(
+    <>
+        <h1 className='display-4 text-center mt-3'>SignUp</h1>
         <div className="row">
-            <h1 className='display-4 text-center mt-3'>SignUp</h1>
-            <form className="mx-auto mt-5 col-lg-5 col-sm-8 col-11 border border-3 p-3 shadow shadow-3" onSubmit={handleSubmit(onFormSubmit)}>
+            <form className="mx-auto mt-5 col-lg-4 col-sm-7 col-11 border border-3 p-3 shadow shadow-3" onSubmit={handleSubmit(onFormSubmit)}>
                 <div className="mb-3">
                     <label htmlFor="username" className="form-label">UserName</label>
                     <input type="text" className='form-control' {...register("username",{required:true})}/>
@@ -41,6 +42,7 @@ function SignUp(){
                 <button type="submit" className="btn btn-info">Submit <BiLogInCircle/> </button>
             </form>
         </div>
+        </>
     )
 }
 export default SignUp;
