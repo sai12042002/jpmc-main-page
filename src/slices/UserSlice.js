@@ -3,10 +3,8 @@ import axios from 'axios';
 export const userLogin=createAsyncThunk("userlogin",async(userLoginDetails,thunkApi)=>{
 let response=await axios.post('/user-api/login',userLoginDetails);
 let data=response.data;
-console.log(data)
 if(data.message==="Login success"){
-    localStorage.setItem("token",data.payload);
-    console.log(data.userdata)
+    localStorage.setItem("loginToken",data.payload);
     return data.userdata;
 }
 if(data.message==="Invalid users" || data.message==="Invalid password"){
@@ -22,7 +20,16 @@ const userLoginSlice=createSlice({
         isRejected:false,
         errMsg:''
     },
-    reducers:{},
+    reducers:{
+        clearLoginStatus:(state)=>{
+            state.userObj=null;
+            state.isPending=false;
+            state.isFulfilled=false;
+            state.isRejected=false;
+            state.errMsg='';
+            return state;
+        }
+    },
     extraReducers:{
         [userLogin.pending]:(state,action)=>{
             state.isPending=true
@@ -42,5 +49,5 @@ const userLoginSlice=createSlice({
         }
     }
 });
-export const {}=userLoginSlice.actions;
+export const {clearLoginStatus}=userLoginSlice.actions;
 export default userLoginSlice.reducer;

@@ -7,8 +7,6 @@ require('dotenv').config()
 const app=exp()
 //import path for connecting..
 const path=require('path')
-const { request } = require('http')
-const { response } = require('express')
 
 //connecting back-end
 

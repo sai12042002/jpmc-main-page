@@ -1,0 +1,9 @@
+.profile-pic{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+.username,.email{
+    font-size:medium;
+    font-family: sans-serif;
+}
