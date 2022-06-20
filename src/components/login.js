@@ -11,6 +11,7 @@ function Login(){
     let dispatch=useDispatch()
     let navigate=useNavigate()
     const onFormSubmit=(loginData)=>{
+        console.log(loginData)
         dispatch(userLogin(loginData))
     }
     useEffect(() => {
@@ -28,7 +29,6 @@ function Login(){
                 <hr />
                 <form onSubmit={handleSubmit(onFormSubmit)}>
                     <div className='mb-3'>
-                        
                     <div class="form-check">
                             <input class="form-check-input" type="radio" id="user" value="User" {...register("usertype",{required:true})}/>
                             <label class="form-check-label" htmlFor="user">

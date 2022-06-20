@@ -38,7 +38,7 @@ app.use('/product-api',productApp)
 app.use('*',(request,response)=>{
     response.sendFile(path.join(__dirname,'./build/index.html'))
 })
-const port=process.env.PORT
+const port=process.env.PORT || 4000
 app.listen(port,()=>console.log(`Server listening on port ${port}...`))
 
 app.use((request,response,next)=>{
