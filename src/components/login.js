@@ -4,14 +4,13 @@ import {useForm} from 'react-hook-form';
 import {useSelector,useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router';
 import {userLogin} from '../slices/UserSlice';
-import Loader from './loader/Loader'
+import Loader from './loader/Loader';
 function Login(){
     let {userObj,isPending,isFulfilled,isRejected,errMsg}=useSelector((state)=>state.userData)
     const {register,handleSubmit,formState:{errors}}=useForm();
     let dispatch=useDispatch()
     let navigate=useNavigate()
     const onFormSubmit=(loginData)=>{
-        console.log(loginData)
         dispatch(userLogin(loginData))
     }
     useEffect(() => {

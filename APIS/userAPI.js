@@ -4,7 +4,6 @@ const bcrypt=require('bcryptjs')
 const exp=require('express')
 const jwt=require('jsonwebtoken')
 const userApp=exp.Router()
-
 let cloudinary=require("cloudinary").v2;
 const {CloudinaryStorage} =require("multer-storage-cloudinary")
 const multer=require("multer")
@@ -41,20 +40,19 @@ userApp.get('/getusers',asyncHandler(async(request,response)=>{
 userApp.post('/login',asyncHandler(async(request,response)=>{
     const userCollectionObj=request.app.get("userCollectionObj")
     userObj=request.body
-    let usersData=await userCollectionObj.find().toArray()
-    console.log(usersData)
-    let tempUser=usersData.filter(obj=>obj.newUser.username===userObj.username)
-    if(tempUser.length===0){
+    let tempUser=await userCollectionObj.findOne({username:userObj.username})
+    console.log(tempUser)
+    if(tempUser===null){
         response.send({message:"Invalid users"})
     }
     else{
-        const status=await bcrypt.compare(userObj.password,tempUser[0].newUser.password)
+        const status=await bcrypt.compare(userObj.password,tempUser.password)
         if(status==false){
             response.send({message:"Invalid password"})
         }
         else{
-            let token=jwt.sign({username:userObj.username},''+process.env.SECURITY,{expiresIn:1})
-            response.send({message:"Login success",payload:token,userdata:tempUser[0].newUser})
+            let token=jwt.sign({username:userObj.username},''+process.env.SECURITY,{expiresIn:60})
+            response.send({message:"Login success",payload:token,userdata:tempUser})
         }
     }
 }))
@@ -64,17 +62,17 @@ userApp.post('/login',asyncHandler(async(request,response)=>{
 userApp.post('/create-user',upload.single("photo"),asyncHandler(async(request,response)=>{
     const userCollectionObj=request.app.get("userCollectionObj");
     let newUser=JSON.parse(request.body.userObj);
-    let userObj=await userCollectionObj.find().toArray();
-    let tempUser=userObj.filter(obj=>obj.newUser.username===newUser.username)
-    console.log("data",tempUser)
-    if(tempUser.length!==0){
+    // let userObj=await userCollectionObj.find().toArray();
+    // let tempUser=userObj.filter(obj=>obj.newUser.username===newUser.username)
+    let tempUser=await userCollectionObj.findOne({username:newUser.username})
+    if(tempUser!==null){
         response.send({message:"The username already exist..please choose another.."})
     }
     else{
         let hashedPassword= await bcrypt.hash(newUser.password,5)
         newUser.password=hashedPassword;
         newUser.photo=request.file.path;
-        await userCollectionObj.insertOne({newUser})
+        await userCollectionObj.insertOne(newUser)
         response.send({message:"User Created successfully..."})
     }
 }))
