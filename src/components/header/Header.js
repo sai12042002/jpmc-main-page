@@ -3,7 +3,8 @@ import {Navbar,Container,Nav,NavDropdown} from 'react-bootstrap'
 import Home from "../Home";
 import SIGNUP from '../SignUp'
 import LOGIN from '../Login'
-import CONTACTUS from '../ContactUs'
+import IVENTORY from '../Inventory'
+import STATSTICS from '../Statistics'
 import UserDashBoard from "../UserDashBoard/UserDashBoard";
 import {useSelector,useDispatch} from 'react-redux';
 import { clearLoginStatus } from "../../slices/UserSlice";
@@ -23,7 +24,7 @@ function Header(){
             <div>
             <Navbar bg="dark" expand="lg" variant="dark">
                 <Container>
-                <Navbar.Brand href="">MyApp</Navbar.Brand>
+                <Navbar.Brand href="">my</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 { isFulfilled !==true ?(
@@ -31,7 +32,8 @@ function Header(){
                     <NavLink className="nav-link" to="">Home</NavLink>
                     <NavLink className="nav-link" to="signup">SignUp</NavLink>
                     <NavLink className="nav-link" to="login">Login</NavLink>
-                    <NavLink className="nav-link" to="contactus">ContactUs</NavLink>
+                    <NavLink className="nav-link" to="inventory">Invnetory</NavLink>
+                    <NavLink className="nav-link" to="statstics">Statstics</NavLink>
                     </Nav>):(
                  <>
                  {/* This dropdown is visible only when a user is logged in */}
@@ -57,7 +59,8 @@ function Header(){
             <Route path="/" element={<Home/>}></Route>
             <Route path="/signup" element={<SIGNUP/>}></Route>
             <Route path="/login" element={<LOGIN/>}></Route>
-            <Route path="/contactus" element={<CONTACTUS/>}></Route>
+            <Route path="/inventory" element={<IVENTORY/>}></Route>
+            <Route path="/statistics" element={<STATSTICS/>}></Route>
             <Route path='/userdashboard' element={<UserDashBoard/>}></Route>
             </Routes>
       </>

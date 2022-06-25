@@ -28,22 +28,9 @@ function Login(){
                 <h1>Login</h1>
                 <hr />
                 <form onSubmit={handleSubmit(onFormSubmit)}>
+                   
                     <div className='mb-3'>
-                    <div class="form-check">
-                            <input class="form-check-input" type="radio" id="user" value="User" {...register("usertype",{required:true})}/>
-                            <label class="form-check-label" htmlFor="user">
-                                User
-                            </label>
-                            </div>
-                            <div class="form-check">
-                            <input className="form-check-input" type="radio" id="admin" value="Admin" checked {...register("usertype",{required:true})}/>
-                            <label className="form-check-label" htmlFor="admin">
-                                Admin
-                            </label>
-                            </div>
-                    </div>
-                    <div className='mb-3'>
-                        <label htmlFor="username" className='form-label'>Username</label>
+                        <label htmlFor="username" className='form-label'>UserId</label>
                         <input type="text" className='form-control' {...register("username",{required:true})} />
                     </div>
                     <div className='mb-3'>

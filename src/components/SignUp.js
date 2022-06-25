@@ -33,7 +33,7 @@ function SignUp(){
         <div className="row">
             <form className="mx-auto mt-5 col-lg-4 col-sm-7 col-11 border border-3 p-3 shadow shadow-3" onSubmit={handleSubmit(onFormSubmit)}>
                 <div className="mb-2">
-                    <label htmlFor="username" className="form-label">UserName</label>
+                    <label htmlFor="username" className="form-label">UserId</label>
                     <input type="text" className='form-control' {...register("username",{required:true})}/>
                     {errors.username?.type==="required" && <p className='text-danger'>*Username is Required</p>}
                 </div>
@@ -47,14 +47,8 @@ function SignUp(){
                 <input type="password" className="form-control" {...register("password",{required:true})}/>
                 {errors.password?.type==="required" && <p className='text-danger'>*Password is Required</p>}
                 </div>
-                <div className='mb-2'>
-                    <label htmlFor="photo" className='form-label'>Select Profile</label>
-                    <input type="file" className='form-control'
-                    {...register('photo',{required:true})}
-                    onChange={(event)=>onImageSelect(event)}
-                    />
-                </div>
-                <button type="submit" className="btn btn-info">Submit</button>
+                
+                <button type="submit" className="btn btn-info float-end">Submit</button>
             </form>
         </div>
         </>
