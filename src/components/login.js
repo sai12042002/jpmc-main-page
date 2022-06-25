@@ -1,4 +1,4 @@
-import img2 from '../images/img2.svg';
+import img2 from './images/img2.svg';
 import { useEffect } from 'react';
 import {useForm} from 'react-hook-form';
 import {useSelector,useDispatch} from 'react-redux';
@@ -32,15 +32,9 @@ function Login(){
                     <div class="form-check">
                             <input class="form-check-input" type="radio" id="user" value="User" {...register("usertype",{required:true})}/>
                             <label class="form-check-label" htmlFor="user">
-                                User
+                                Volunteer
                             </label>
                             </div>
-                            {/* <div class="form-check">
-                            <input className="form-check-input" type="radio" id="admin" value="Admin" checked {...register("usertype",{required:true})}/>
-                            <label className="form-check-label" htmlFor="admin">
-                                Admin
-                            </label>
-                            </div> */}
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="username" className='form-label'>Username</label>

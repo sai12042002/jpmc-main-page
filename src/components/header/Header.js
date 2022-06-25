@@ -33,7 +33,7 @@ function Header(){
                     <NavLink className="nav-link" to="">Home</NavLink>
                     <NavLink className="nav-link" to="signup">SignUp</NavLink>
                     <NavLink className="nav-link" to="login">Login</NavLink>
-                    <NavLink className="nav-link" to="contactus">ContactUs</NavLink>
+                    {/* <NavLink className="nav-link" to="contactus">ContactUs</NavLink> */}
                     </Nav>):(
                  <>
                  {/* This dropdown is visible only when a user is logged in */}
