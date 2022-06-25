@@ -1,4 +1,4 @@
-import img2 from '../images/img2.svg';
+import img2 from './images/img2.svg';
 import { useEffect } from 'react';
 import {useForm} from 'react-hook-form';
 import {useSelector,useDispatch} from 'react-redux';
@@ -30,7 +30,15 @@ function Login(){
                 <form onSubmit={handleSubmit(onFormSubmit)}>
                    
                     <div className='mb-3'>
-                        <label htmlFor="username" className='form-label'>UserId</label>
+                    <div class="form-check">
+                            <input class="form-check-input" type="radio" id="user" value="User" {...register("usertype",{required:true})}/>
+                            <label class="form-check-label" htmlFor="user">
+                                Volunteer
+                            </label>
+                            </div>
+                    </div>
+                    <div className='mb-3'>
+                        <label htmlFor="username" className='form-label'>Username</label>
                         <input type="text" className='form-control' {...register("username",{required:true})} />
                     </div>
                     <div className='mb-3'>

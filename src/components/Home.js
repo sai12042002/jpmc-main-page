@@ -3,6 +3,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Carousel from 'react-bootstrap/Carousel';
 import './home.css'
 import Button from "react-bootstrap/Button";
+import Bgm1 from "../components/images/bgm1.jpg";
 
 function Home() {
   return (
@@ -11,11 +12,7 @@ function Home() {
     {/*carosel */}
     <Carousel className='mt-5 w-75  mx-auto '>
       <Carousel.Item interval={1000}>
-        <img
-          className="d-block w-100"
-          src="https://www.froedtert.com/sites/default/files/styles/story_hero_medium/public/image/2020-04/Disheswithfood%201200x628.jpg?itok=kR-ds_HL"
-
-        />
+        <img className="d-block w-100" src={Bgm1}  alt="First slide"/>
         
         <Carousel.Caption>
           

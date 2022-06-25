@@ -1,4 +1,5 @@
 import { Routes,Route,NavLink, useNavigate } from "react-router-dom";
+import Logo from "../images/logo.png";
 import {Navbar,Container,Nav,NavDropdown} from 'react-bootstrap'
 import Home from "../Home";
 import SIGNUP from '../SignUp'
@@ -24,7 +25,7 @@ function Header(){
             <div>
             <Navbar bg="dark" expand="lg" variant="dark">
                 <Container>
-                <Navbar.Brand href="">my</Navbar.Brand>
+                <Navbar.Brand href=""><img src={Logo} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 { isFulfilled !==true ?(
@@ -34,7 +35,7 @@ function Header(){
                     <NavLink className="nav-link" to="login">Login</NavLink>
                     <NavLink className="nav-link" to="inventory">Invnetory</NavLink>
                     <NavLink className="nav-link" to="statstics">Statstics</NavLink>
-                    </Nav>):(
+                  </Nav>):(
                  <>
                  {/* This dropdown is visible only when a user is logged in */}
                  <NavDropdown
