@@ -30,8 +30,8 @@ function SignUp(){
         })
     }   
  return(
-    <>
-        <h1 className='display-4 text-center mt-2'>{t('sign')}</h1>
+        <div>
+        <h1 className='display-4 text-center mt-2 '>{t('sign')}</h1>
         <div className="row">
             <form className="mx-auto mt-5 col-lg-4 col-sm-7 col-11 border border-3 p-3 shadow shadow-3" onSubmit={handleSubmit(onFormSubmit)}>
                 <div className="mb-2">
@@ -52,8 +52,11 @@ function SignUp(){
                 
                 <button type="submit" className="btn btn-info float-end">{t('submit')}</button>
             </form>
+
         </div>
-        </>
+        <br></br>
+        <br></br>
+        </div>
     )
 }
 export default SignUp;

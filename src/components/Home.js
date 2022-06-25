@@ -7,45 +7,51 @@ import Bgm1 from "../components/images/bgm1.jpg";
 import React,{useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
+
 function Home() {
   const {t}=useTranslation();
+
+
   return (
  
-
+  <div className='Home'>
     <div>
-    {/*carosel */}
-    <Carousel className='mt-5 w-75  mx-auto '>
-      <Carousel.Item interval={1000}>
-        <img className="d-block w-100" src={Bgm1}  alt="First slide"/>
-        
-        <Carousel.Caption>
-          
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={500}>
-        <img
-          className="d-block w-100"
-          src="https://t3.ftcdn.net/jpg/02/92/07/56/360_F_292075696_hGdSBQ9Bvf1jsaVMP2rTpuRr0VMATck0.jpg"
-              />
-        <Carousel.Caption>
-          
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://media.istockphoto.com/photos/cardboard-box-filled-with-nonperishable-foods-on-wooden-table-high-picture-id1283712032?b=1&k=20&m=1283712032&s=170667a&w=0&h=u554erAvIkLQ_UIYH9mLaqcOpFYytkwCA8cmVA5ovTU="
-         
-        />
-        <Carousel.Caption>
-          
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
 
+      <div className='container p-0 w-100 justify-content-evenly'>
+
+          <div className='row mx-auto m-3'>
+            <div className='col'>
+              <div className='card'>
+                <div className='card-body text-center'>
+                We're hungry for donations.
+                </div>
+              </div>
+            </div>
+            <div className='col'>
+              <div className='card'>
+                  <div className='card-body text-center'>
+                  We’re not getting younger. Today let’s fight hunger!
+
+                  </div>
+                </div>
+            </div>
+            <div className='col'>
+              <div className='card'>
+                <div className='card-body text-center'>
+                Let it snow; don’t let hunger grow.
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+ 
+
+      </div>
+    
     {/* cards regarding every functionality */}
 <CardGroup>
-  <Card className='m-5'>
+  <Card className='m-5 mb-2'>
     <Card.Img variant="top" className='w-50 mx-auto d-flex' src="https://media0.giphy.com/media/LkxsV3DqNxDwjOYJ40/giphy.gif?cid=ecf05e47iiy0awzj5a6paz3hwckce4dnsfvnyo19uw2o7v2a&rid=giphy.gif&ct=g" />
     <Card.Body>
       <Card.Title><h2>{t('inventory')}</h2></Card.Title>
@@ -59,7 +65,7 @@ function Home() {
       <Button className='float-end'>{t('get_inventory')}</Button>
     </Card.Footer>
   </Card>
-  <Card className='m-5'>
+  <Card className='m-5 mb-2'>
     <Card.Img variant="top" className='w-50 mx-auto d-flex' src="https://media3.giphy.com/media/fng8OzU2DvO2NCGeLY/giphy.gif?cid=ecf05e47udsnalndylzd3gfcvl4rwss7noaqhjtgmzmi2ljg&rid=giphy.gif&ct=g" />
     <Card.Body>
       <Card.Title><h2>{t('statistics')}</h2></Card.Title>
@@ -71,10 +77,14 @@ function Home() {
     <Button className='float-end'>{t('get_stats')}</Button>
     </Card.Footer>
   </Card>
- 
 </CardGroup>
-
+      <div className='styling'>
+        <hr className='w-75 mx-auto text-warning'></hr>
+        <h1 className='text-center text-warning'>About Us</h1>
+        <p className='text-center text-warning'>Currently in 9 cities with 38 Center</p>
+      </div>
       
+    </div>
     </div>
   );
 }

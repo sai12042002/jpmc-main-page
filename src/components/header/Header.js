@@ -25,6 +25,7 @@ function Header(){
         dispatch(clearLoginStatus());
         navigate("/login");
     };
+    
     return(
         <>
             <div>
@@ -40,7 +41,7 @@ function Header(){
                     <NavLink className="nav-link" to="login">{t('login')}</NavLink>
                     <NavLink className="nav-link" to="inventory">{t('inventory')}</NavLink>
                     <NavLink className="nav-link" to="statstics">{t('stats')}</NavLink>
-                    
+
                   </Nav>):(
                  <>
                  {/* This dropdown is visible only when a user is logged in */}
