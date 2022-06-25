@@ -1,4 +1,5 @@
 import { Routes,Route,NavLink, useNavigate } from "react-router-dom";
+import Logo from "../images/logo.png";
 import {Navbar,Container,Nav,NavDropdown} from 'react-bootstrap'
 import Home from "../Home";
 import SIGNUP from '../SignUp'
@@ -23,7 +24,8 @@ function Header(){
             <div>
             <Navbar bg="dark" expand="lg" variant="dark">
                 <Container>
-                <Navbar.Brand href="">MyApp</Navbar.Brand>
+                  
+                <Navbar.Brand href=""><img src={Logo} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 { isFulfilled !==true ?(

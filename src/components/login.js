@@ -35,12 +35,12 @@ function Login(){
                                 User
                             </label>
                             </div>
-                            <div class="form-check">
+                            {/* <div class="form-check">
                             <input className="form-check-input" type="radio" id="admin" value="Admin" checked {...register("usertype",{required:true})}/>
                             <label className="form-check-label" htmlFor="admin">
                                 Admin
                             </label>
-                            </div>
+                            </div> */}
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="username" className='form-label'>Username</label>
