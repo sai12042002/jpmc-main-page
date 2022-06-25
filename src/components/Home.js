@@ -23,22 +23,21 @@ function Home() {
             <div className='col'>
               <div className='card'>
                 <div className='card-body text-center'>
-                We're hungry for donations.
+                {t("quote-1")}
                 </div>
               </div>
             </div>
             <div className='col'>
               <div className='card'>
                   <div className='card-body text-center'>
-                  We’re not getting younger. Today let’s fight hunger!
-
+                  {t("quote-2")}
                   </div>
                 </div>
             </div>
             <div className='col'>
               <div className='card'>
                 <div className='card-body text-center'>
-                Let it snow; don’t let hunger grow.
+                {t("quote-3")}
 
                 </div>
               </div>
@@ -48,6 +47,10 @@ function Home() {
  
 
       </div>
+    {/* image */}
+    <div>
+      <img src="https://media.istockphoto.com/vectors/food-donation-and-charity-vector-id1224414210?k=6&m=1224414210&s=170667a&w=0&h=q6jgt94AfEil4LAQIXygB90JMbEZcbwxgJbqy4NcUFw=" className='mx-auto w-100 d-block'></img>
+    </div>
     
     {/* cards regarding every functionality */}
 <CardGroup>
@@ -80,8 +83,8 @@ function Home() {
 </CardGroup>
       <div className='styling'>
         <hr className='w-75 mx-auto text-warning'></hr>
-        <h1 className='text-center text-warning'>About Us</h1>
-        <p className='text-center text-warning'>Currently in 9 cities with 38 Center</p>
+        <h1 className='text-center text-warning'>{t("about")} </h1>
+        <p className='text-center text-warning'>{t("about_para")} </p>
       </div>
       
     </div>
