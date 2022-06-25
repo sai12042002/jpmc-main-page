@@ -1,16 +1,12 @@
-import {FaInstagram,FaFacebook} from 'react-icons/fa'
+import {DiApple,DiJsBadge} from 'react-icons/di'
 function Footer(){
     return(
         <>
-        <footer className="bg-dark text-white text-center pb-5">
-            <div>
-                <span className='m-1'><FaInstagram /></span>
-                <span className='m-1'><FaFacebook /></span>
-            </div>
-            <hr className='container' />
-            <div>
-                <span>@Poorna pvt limited</span>
-            </div>
+        <footer className="bg-dark text-white text-center ">
+            <h1>This is footer</h1>
+            <span ><DiApple/></span>
+            <span><DiJsBadge/></span>
+
         </footer>
         </>
     )

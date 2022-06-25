@@ -1,5 +1,5 @@
 import {useForm} from 'react-hook-form';
-import { BiLogInCircle } from "react-icons/bi";
+
 import {useNavigate} from "react-router";
 import axios from 'axios'
 import { useState } from 'react';
@@ -14,12 +14,12 @@ function SignUp(){
         let formData= new FormData()
         formData.append("userObj",JSON.stringify(userObj))
         formData.append("photo",img)
-        axios.post('http://localhost:4000/user-api/create-user',formData)
+        axios.post('http://localhost:3000/user-api/create-user',formData)
         .then(response=>{
             console.log(response)
             alert(response.data.message)
             if(response.data.message==="User Created successfully..."){
-                navigate("/login")
+                navigate("/Login")
             }
         })
         .catch(error=>{
@@ -54,7 +54,7 @@ function SignUp(){
                     onChange={(event)=>onImageSelect(event)}
                     />
                 </div>
-                <button type="submit" className="btn btn-info">Submit <BiLogInCircle/> </button>
+                <button type="submit" className="btn btn-info">Submit</button>
             </form>
         </div>
         </>

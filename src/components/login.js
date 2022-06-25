@@ -5,6 +5,7 @@ import {useSelector,useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router';
 import {userLogin} from '../slices/UserSlice';
 import Loader from './loader/Loader';
+import { BiLogInCircle } from "react-icons/bi";
 function Login(){
     let {userObj,isPending,isFulfilled,isRejected,errMsg}=useSelector((state)=>state.userData)
     const {register,handleSubmit,formState:{errors}}=useForm();
@@ -50,7 +51,7 @@ function Login(){
                         <input type="password" className='form-control' {...register("password",{required:true})} />
                     </div>
                     <div className='mb-3'>
-                        <button type="submit" className='btn btn-info'>Login</button>
+                        <button type="submit" variant="outlined" className='btn btn-info'>Login <BiLogInCircle/> </button>
                     </div>
                 </form>
             </div>

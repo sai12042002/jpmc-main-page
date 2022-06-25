@@ -33,8 +33,8 @@ mdbClient.connect(Database)
 
 
 
-app.use('/user-api',userApp)
-app.use('/product-api',productApp)
+app.use('/user-api/',userApp)
+app.use('/product-api/',productApp)
 app.use('*',(request,response)=>{
     response.sendFile(path.join(__dirname,'./build/index.html'))
 })
