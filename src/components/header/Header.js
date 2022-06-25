@@ -10,8 +10,13 @@ import UserDashBoard from "../UserDashBoard/UserDashBoard";
 import {useSelector,useDispatch} from 'react-redux';
 import { clearLoginStatus } from "../../slices/UserSlice";
 import './header.css';
+// import React,{useState} from 'react';
+
 import { useEffect } from "react";
+
+import {useTranslation} from 'react-i18next';
 function Header(){
+  const {t}=useTranslation();
     let {userObj,isPending,isFulfilled,isRejected,errMsg}=useSelector((state)=>state.userData);
     const dispatch=useDispatch();
     const navigate=useNavigate();
@@ -30,11 +35,12 @@ function Header(){
                 <Navbar.Collapse id="basic-navbar-nav">
                 { isFulfilled !==true ?(
                     <Nav className="ms-auto">
-                    <NavLink className="nav-link" to="">Home</NavLink>
-                    <NavLink className="nav-link" to="signup">SignUp</NavLink>
-                    <NavLink className="nav-link" to="login">Login</NavLink>
-                    <NavLink className="nav-link" to="inventory">Invnetory</NavLink>
-                    <NavLink className="nav-link" to="statstics">Statstics</NavLink>
+                    <NavLink className="nav-link" to="">{t('home')}</NavLink>
+                    <NavLink className="nav-link" to="signup">{t('sign')}</NavLink>
+                    <NavLink className="nav-link" to="login">{t('login')}</NavLink>
+                    <NavLink className="nav-link" to="inventory">{t('inventory')}</NavLink>
+                    <NavLink className="nav-link" to="statstics">{t('stats')}</NavLink>
+                    
                   </Nav>):(
                  <>
                  {/* This dropdown is visible only when a user is logged in */}
